@@ -1,7 +1,7 @@
 package com.jeiker.controller;
 
 import com.jeiker.model.City;
-import com.jeiker.service.impl.CityServiceImpl;
+import com.jeiker.service.CityService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,11 +17,11 @@ import java.util.List;
 @WebServlet("/city")
 public class CityServlet extends HttpServlet {
 
-    private CityServiceImpl cityService;
+    private CityService cityService;
 
     @Override
     public void init() throws ServletException {
-        cityService = new CityServiceImpl();
+        cityService = new CityService();
     }
 
     @Override
