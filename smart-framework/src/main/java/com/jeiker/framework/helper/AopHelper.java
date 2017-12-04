@@ -14,6 +14,7 @@ import java.util.*;
 
 /**
  * 方法拦截助手类
+ * 实现横向拦截：性能分析，日志收集，安全控制。。。
  *
  * @author huangyong
  * @since 1.0.0
