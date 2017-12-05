@@ -5,8 +5,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.smart4j.framework.util.ClassUtil;
-import org.smart4j.framework.util.CollectionUtil;
+import com.jeiker.framework.util.ClassUtil;
+import com.jeiker.framework.util.CollectionUtil;
 
 import javax.sql.DataSource;
 import java.io.BufferedReader;

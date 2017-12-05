@@ -1,13 +1,13 @@
 package com.jeiker.controller;
 
-import org.smart4j.chapter3.model.Customer;
-import org.smart4j.chapter3.service.CustomerService;
-import org.smart4j.framework.annotation.Action;
-import org.smart4j.framework.annotation.Controller;
-import org.smart4j.framework.annotation.Inject;
-import org.smart4j.framework.bean.Data;
-import org.smart4j.framework.bean.Param;
-import org.smart4j.framework.bean.View;
+import com.jeiker.model.City;
+import com.jeiker.service.CityService;
+import com.jeiker.framework.annotation.Action;
+import com.jeiker.framework.annotation.Controller;
+import com.jeiker.framework.annotation.Inject;
+import com.jeiker.framework.bean.Data;
+import com.jeiker.framework.bean.Param;
+import com.jeiker.framework.bean.View;
 
 import java.util.List;
 import java.util.Map;
@@ -19,73 +19,73 @@ import java.util.Map;
 public class CityController {
 
     @Inject
-    private CustomerService customerService;
+    private CityService cityService;
 
     /**
      * 进入 客户列表 界面
      */
-    @Action("get:/customer")
+    @Action("get:/city")
     public View index(Param param) {
-        List<Customer> customerList = customerService.getCustomerList();
-        return new View("customer.jsp").addModel("customerList", customerList);
+        List<City> cityList = cityService.getCityList();
+        return new View("city.jsp").addModel("cityList", cityList);
     }
 
     /**
      * 显示客户基本信息
      */
-    @Action("get:/customer_show")
+    @Action("get:/city_show")
     public View show(Param param) {
         long id = param.getLong("id");
-        Customer customer = customerService.getCustomer(id);
-        return new View("customer_show.jsp").addModel("customer", customer);
+        City city = cityService.getCity(id);
+        return new View("city_show.jsp").addModel("city", city);
     }
 
     /**
      * 进入 创建客户 界面
      */
-    @Action("get:/customer_create")
+    @Action("get:/city_create")
     public View create(Param param) {
-        return new View("customer_create.jsp");
+        return new View("city_create.jsp");
     }
 
     /**
      * 处理 创建客户 请求
      */
-    @Action("post:/customer_create")
+    @Action("post:/city_create")
     public Data createSubmit(Param param) {
         Map<String, Object> fieldMap = param.getFieldMap();
-        boolean result = customerService.createCustomer(fieldMap);
+        boolean result = cityService.createCity(fieldMap);
         return new Data(result);
     }
 
     /**
      * 进入 编辑客户 界面
      */
-    @Action("get:/customer_edit")
+    @Action("get:/city_edit")
     public View edit(Param param) {
         long id = param.getLong("id");
-        Customer customer = customerService.getCustomer(id);
-        return new View("customer_edit.jsp").addModel("customer", customer);
+        City city = cityService.getCity(id);
+        return new View("city_edit.jsp").addModel("city", city);
     }
 
     /**
      * 处理 编辑客户 请求
      */
-    @Action("put:/customer_edit")
+    @Action("put:/city_edit")
     public Data editSubmit(Param param) {
         long id = param.getLong("id");
         Map<String, Object> fieldMap = param.getFieldMap();
-        boolean result = customerService.updateCustomer(id, fieldMap);
+        boolean result = cityService.updateCity(id, fieldMap);
         return new Data(result);
     }
 
     /**
      * 处理 删除客户 请求
      */
-    @Action("delete:/customer_edit")
+    @Action("delete:/city_edit")
     public Data delete(Param param) {
         long id = param.getLong("id");
-        boolean result = customerService.deleteCustomer(id);
+        boolean result = cityService.deleteCity(id);
         return new Data(result);
     }
 }

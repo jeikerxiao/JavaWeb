@@ -1,6 +1,6 @@
 package com.jeiker.service;
 
-import com.jeiker.helper.DatabaseHelper;
+import com.jeiker.framework.helper.DatabaseHelper;
 import com.jeiker.model.City;
 
 import java.util.List;
