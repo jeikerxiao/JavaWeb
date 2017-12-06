@@ -25,7 +25,7 @@ public class CityController {
      * 进入 客户列表 界面
      */
     @Action("get:/city")
-    public View index(Param param) {
+    public View index() {
         List<City> cityList = cityService.getCityList();
         return new View("city.jsp").addModel("cityList", cityList);
     }
