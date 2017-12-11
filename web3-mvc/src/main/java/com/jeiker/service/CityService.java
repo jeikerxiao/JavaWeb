@@ -1,5 +1,6 @@
 package com.jeiker.service;
 
+import com.jeiker.framework.annotation.Service;
 import com.jeiker.framework.helper.DatabaseHelper;
 import com.jeiker.model.City;
 
@@ -11,6 +12,7 @@ import java.util.Map;
  * @date : 17/12/1 下午3:49
  * @description :
  */
+@Service
 public class CityService {
 
     /**
