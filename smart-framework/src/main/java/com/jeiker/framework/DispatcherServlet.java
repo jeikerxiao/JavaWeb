@@ -136,8 +136,11 @@ public class DispatcherServlet extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             PrintWriter writer = response.getWriter();
             String json = JsonUtil.toJson(model);
+            // 写数据
             writer.write(json);
+            // 刷新，表示完
             writer.flush();
+            // 关闭
             writer.close();
         }
     }

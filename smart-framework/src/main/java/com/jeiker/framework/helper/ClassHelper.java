@@ -62,7 +62,7 @@ public final class ClassHelper {
     }
 
     /**
-     * 获取应用包名下所有 Bean 类（包括：Service、Controller 等）
+     * 获取应用包名下所有 Bean 类（包括：Service、Controller 等）Smart框架所管理的Bean
      */
     public static Set<Class<?>> getBeanClassSet() {
         Set<Class<?>> beanClassSet = new HashSet<Class<?>>();

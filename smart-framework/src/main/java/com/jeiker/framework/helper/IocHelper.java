@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 import java.util.Map;
 
 /**
- * 依赖注入助手类
+ * 依赖注入助手类（核心）：让 Bean 中的成员变量通过注解实例化。
  * 获取所有Bean Map，然后遍历这个映射关系，分别取出Bean 类与Bean 实例，
  * 进而通过反射获取类中所有的成员变量。遍历成员变量，判断是否带有Inject注解，
  * 如有，则根据Bean类取出的Bean实例，通过ReflectionUtil的setField方法来修改当前成员变量的值。

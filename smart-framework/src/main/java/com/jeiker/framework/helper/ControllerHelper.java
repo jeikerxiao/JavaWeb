@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * 控制器助手类
+ * 控制器助手类（核心）：让 Controller 中请求与处理器的绑定
  * 通过ClassHelper, 可以获取所有定义了Controller 注解的类，
  * 可以通过反射获取该类中所有带有Action 注解的方法（简称 Action 方法），获取 Action 注解中的请求表达式，
  * 进而获取请求方法与请求路径，封装一个请求对象（Request）与处理对象（Handler）,最后将Request与Handler建立一个映射关系，
