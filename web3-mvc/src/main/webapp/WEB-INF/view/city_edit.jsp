@@ -5,37 +5,31 @@
 
 <html>
 <head>
-    <title>客户管理 - 编辑客户</title>
+    <title>城市管理 - 编辑城市</title>
 </head>
 <body>
 
-<h1>编辑客户界面</h1>
+<h1>编辑城市界面</h1>
 
-<form id="customer_form">
-    <input type="hidden" name="id" value="${customer.id}">
+<form id="city_form">
+    <input type="hidden" name="id" value="${city.id}">
     <table>
         <tr>
-            <td>客户名称：</td>
+            <td>城市名称：</td>
             <td>
-                <input type="text" name="name" value="${customer.name}">
+                <input type="text" name="name" value="${city.name}">
             </td>
         </tr>
         <tr>
-            <td>联系人：</td>
+            <td>国家：</td>
             <td>
-                <input type="text" name="contact" value="${customer.contact}">
+                <input type="text" name="country" value="${city.country}">
             </td>
         </tr>
         <tr>
-            <td>电话号码：</td>
+            <td>省：</td>
             <td>
-                <input type="text" name="telephone" value="${customer.telephone}">
-            </td>
-        </tr>
-        <tr>
-            <td>邮箱地址：</td>
-            <td>
-                <input type="text" name="email" value="${customer.email}">
+                <input type="text" name="state" value="${city.state}">
             </td>
         </tr>
     </table>
@@ -46,12 +40,13 @@
 <script src="${BASE}/asset/lib/jquery-form/jquery.form.min.js"></script>
 <script>
     $(function() {
-        $('#customer_form').ajaxForm({
+        $('#city_form').ajaxForm({
             type: 'put',
-            url: '${BASE}/customer_edit',
+            url: '${BASE}/city_edit',
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
             success: function(data) {
                 if (data) {
-                    location.href = '${BASE}/customer';
+                    location.href = '${BASE}/city';
                 }
             }
         });

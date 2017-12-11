@@ -21,6 +21,11 @@ public class CityController {
     @Inject
     private CityService cityService;
 
+    @Action("get:/")
+    public View hello() {
+        return new View("index.jsp");
+    }
+
     /**
      * 进入 客户列表 界面
      */
@@ -44,7 +49,7 @@ public class CityController {
      * 进入 创建客户 界面
      */
     @Action("get:/city_create")
-    public View create(Param param) {
+    public View create() {
         return new View("city_create.jsp");
     }
 

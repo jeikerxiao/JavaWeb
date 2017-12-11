@@ -1,11 +1,11 @@
 <%@ page pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>客户管理 - 创建客户</title>
+    <title>城市管理 - 创建城市</title>
 </head>
 <body>
 
-<h1>创建客户界面</h1>
+<h1>创建城市界面</h1>
 
 <%-- TODO --%>
 
