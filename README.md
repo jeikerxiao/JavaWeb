@@ -1,13 +1,84 @@
 
 # Java Web框架学习
 
-这是黄勇的开源框架
+Java Web框架的学习分以下几个小demo:
+
+1. web1-simple
+2. web2-complex
+3. web3-mvc
+
+可以通过这几个项目逐渐深入的了解Java Web框架。
+
+## web1-simple
+
+HelloServlet.java 代码：
+
+
+```java
+@WebServlet("/hello")
+public class HelloServlet extends HttpServlet{
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTime = dateFormat.format(new Date());
+
+        request.setAttribute("currentTime", currentTime);
+        request.getRequestDispatcher("/WEB-INF/jsp/hello.jsp").forward(request, response);
+    }
+}
+```
+
+运行：
+
+```
+mvn tomcat7:run
+```
+
+浏览器中打开：
+
+http://localhost:8080/hello
+
+## web2-complex
+
+运行：
+
+```
+mvn tomcat7:run
+```
+
+浏览器中打开：
+
+http://localhost:8080/city
+
+
+## web3-mvc
+
+项目依赖于 smart-framework 所以需要先运行 smart-framework 项目，打包
+
+```
+mvn install
+```
+
+再运行 web3-mvc 项目：
+
+```
+mvn tomcat7:run
+```
+
+浏览器中打开：
+
+http://localhost:8080/city
+
+## smart-framework
+
+smart-framework 这是黄勇的开源框架，在 web3-mvc demo中有演示使用。
 
 https://gitee.com/huangyong/smart-framework
 
 这是非常好的学习框架，有利于了解Spring MVC这类框架的原理。
 
-# 框架特点
+## smart-framework 框架特点
 
 1.它是一款轻量级 Java Web 框架
 
@@ -27,7 +98,7 @@ https://gitee.com/huangyong/smart-framework
 * 新手能在较短时间内入门
 * 核心具有良好的定制性且插件易于扩展
 
-# 框架的核心类
+## smart-framework 框架的核心类
 
 * DispatcherServlet （请求分发）
 * HelperLoader （初始化加载器）
@@ -36,7 +107,7 @@ https://gitee.com/huangyong/smart-framework
 * IocHelper  （Ioc 控制器）
 * ControllerHelper （请求控制器）
 
-# 主要流程
+## 主要流程
 
 1. ClassHelper 加载所有 Bean 类（@Controller、@Service）
 2. 加载 Bean 类名，与 Bean 实例的映射 Map
@@ -50,11 +121,11 @@ https://gitee.com/huangyong/smart-framework
 	- 4.3 从注解中获取 URL 映射规则
 	- 4.4 获取请求方法与请求路径，返回 Request 与 Handler
 
-# DispatcherServlet(请求颁发，主流程)
+## DispatcherServlet(请求颁发，主流程)
 
 1.在 DispatcherServlet 中主要用来初始化相关的 Helper 类。
 
-```
+```java
 /**
  * 请求转发器
  * 编写一个Servlet，让它来处理所有请求。
@@ -179,9 +250,9 @@ public class DispatcherServlet extends HttpServlet {
 
 ```
 
-## IocHelper（依赖注入，@Inject）
+### IocHelper（依赖注入，@Inject）
 
-```
+```java
 
 /**
  * 依赖注入助手类（核心）：让 Bean 中的成员变量通过注解实例化。
@@ -224,9 +295,9 @@ public final class IocHelper {
 }
 ```
 
-## ControllerHelper(请求处理，@Action)
+### ControllerHelper(请求处理，@Action)
 
-```
+```java
 /**
  * 控制器助手类（核心）：让 Controller 中请求与处理器的绑定
  * 通过ClassHelper, 可以获取所有定义了Controller 注解的类，
